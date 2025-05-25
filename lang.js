@@ -1,41 +1,59 @@
 const translations = {
   en: {
     welcome: "Welcome to BJF Token",
-    description: "BJF Token is a decentralized, community-driven digital asset built on the BNB Chain. Our mission is to enable fair access to blockchain innovation while promoting financial freedom through transparency and inclusion."
+    description: "BJF Token is a decentralized digital asset built on the BNB Chain. It enables community-driven growth, low fees, and transparent global access.",
+    home: "Home", buy: "Buy Token", airdrop: "Airdrop", whitepaper: "Whitepaper", contact: "Contact"
   },
   fa: {
-    welcome: "خوش آمدید به BJF Token",
-    description: "BJF Token یک دارایی دیجیتال غیرمتمرکز و جامعه‌محور است که بر بستر زنجیره BNB توسعه یافته. هدف ما ایجاد رشد پایدار، شفافیت مالی، و دسترسی منصفانه به نوآوری در بلاک‌چین است."
+    welcome: "به BJF Token خوش آمدید",
+    description: "BJF Token یک دارایی دیجیتال غیرمتمرکز بر بستر BNB Chain است که با هدف رشد جامعه‌محور، کارمزد کم و دسترسی جهانی شفاف توسعه یافته است.",
+    home: "خانه", buy: "خرید توکن", airdrop: "ایردراپ", whitepaper: "وایت‌پیپر", contact: "تماس"
   },
   ar: {
     welcome: "مرحبًا بكم في BJF Token",
-    description: "BJF Token هو أصل رقمي لامركزي يقوده المجتمع مبني على شبكة BNB. هدفنا هو تمكين الوصول العادل إلى الابتكار المالي وتعزيز الشفافية."
+    description: "BJF Token هو أصل رقمي لامركزي مبني على سلسلة BNB، يتيح نموًا مجتمعيًا ورسومًا منخفضة ووصولًا شفافًا عالميًا.",
+    home: "الرئيسية", buy: "شراء التوكن", airdrop: "إيردروب", whitepaper: "الورقة البيضاء", contact: "اتصل"
   },
   fr: {
     welcome: "Bienvenue sur BJF Token",
-    description: "BJF Token est un actif numérique décentralisé dirigé par la communauté sur la BNB Chain. Notre mission est de promouvoir l'inclusion financière et la transparence."
+    description: "BJF Token est un actif numérique décentralisé sur la BNB Chain, favorisant la croissance communautaire, des frais bas et un accès mondial transparent.",
+    home: "Accueil", buy: "Acheter", airdrop: "Airdrop", whitepaper: "Livre blanc", contact: "Contact"
   },
   es: {
     welcome: "Bienvenido a BJF Token",
-    description: "BJF Token es un activo digital descentralizado impulsado por la comunidad en la BNB Chain. Buscamos promover la libertad financiera con transparencia."
+    description: "BJF Token es un activo digital descentralizado en BNB Chain, con crecimiento impulsado por la comunidad, bajas tarifas y acceso global transparente.",
+    home: "Inicio", buy: "Comprar Token", airdrop: "Airdrop", whitepaper: "Libro blanco", contact: "Contacto"
   },
   zh: {
     welcome: "欢迎来到 BJF Token",
-    description: "BJF Token 是在 BNB 链上构建的去中心化社区驱动数字资产。我们的使命是实现区块链创新的公平访问。"
+    description: "BJF Token 是构建在 BNB 链上的去中心化数字资产，支持社区驱动增长、低费用和全球透明访问。",
+    home: "主页", buy: "购买代币", airdrop: "空投", whitepaper: "白皮书", contact: "联系"
+  },
+  ru: {
+    welcome: "Добро пожаловать в BJF Token",
+    description: "BJF Token — это децентрализованный цифровой актив на основе сети BNB с поддержкой сообщества, низкими комиссиями и прозрачным доступом.",
+    home: "Главная", buy: "Купить токен", airdrop: "Эирдроп", whitepaper: "Вайтпейпер", contact: "Контакты"
+  },
+  tr: {
+    welcome: "BJF Token'a Hoş Geldiniz",
+    description: "BJF Token, BNB Zinciri üzerinde topluluk odaklı büyüme, düşük ücretler ve şeffaf küresel erişim sağlayan merkeziyetsiz bir dijital varlıktır.",
+    home: "Ana Sayfa", buy: "Token Satın Al", airdrop: "Airdrop", whitepaper: "Teknik Doküman", contact: "İletişim"
   }
 };
 
-const switcher = document.getElementById("language-switcher");
-const welcomeText = document.getElementById("welcome");
-const descText = document.getElementById("description");
+document.addEventListener("DOMContentLoaded", () => {
+  const switcher = document.getElementById("language-switcher");
+  switcher.addEventListener("change", (e) => applyTranslations(e.target.value));
+  applyTranslations(switcher.value);
+});
 
-function translate(lang) {
+function applyTranslations(lang) {
   const t = translations[lang];
-  if (t) {
-    welcomeText.innerText = t.welcome;
-    descText.innerText = t.description;
-  }
+  document.getElementById("welcome").textContent = t.welcome;
+  document.getElementById("description").textContent = t.description;
+  document.getElementById("nav-home").textContent = t.home;
+  document.getElementById("nav-buy").textContent = t.buy;
+  document.getElementById("nav-airdrop").textContent = t.airdrop;
+  document.getElementById("nav-whitepaper").textContent = t.whitepaper;
+  document.getElementById("nav-contact").textContent = t.contact;
 }
-
-switcher.addEventListener("change", e => translate(e.target.value));
-window.onload = () => translate(switcher.value);
