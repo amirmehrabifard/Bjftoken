@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BJF Token - Connect Wallet</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .wallet { max-width: 600px; margin: 40px auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    button { padding: 10px 20px; font-size: 16px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    #address { margin-top: 20px; font-family: monospace; color: #333; }
+  </style>
+</head>
+<body>
+  <header><h1 style="text-align:center;">Connect Your Wallet</h1></header>
+  <main class="wallet" style="text-align:center;">
+    <p>Click the button below to connect your MetaMask wallet:</p>
+    <button onclick="connectWallet()">Connect Wallet</button>
+    <div id="address"></div>
+  </main>
+  <script>
+    async function connectWallet() {
+      if (typeof window.ethereum !== 'undefined') {
+        try {
+          const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+          document.getElementById('address').textContent = 'Connected Wallet: ' + accounts[0];
+        } catch (error) {
+          document.getElementById('address').textContent = 'Connection refused.';
+        }
+      } else {
+        alert('MetaMask is not installed!');
+      }
+    }
+  </script>
+</body>
+</html>

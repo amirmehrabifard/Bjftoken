@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Dashboard</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .dashboard { max-width: 800px; margin: 40px auto; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    .section { margin-bottom: 24px; }
+    label { display: block; margin-bottom: 8px; font-weight: bold; }
+    input[type=text], input[type=email] { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <header><h1 style="text-align:center;">BJF Token - User Dashboard</h1></header>
+  <main class="dashboard">
+    <div class="section">
+      <label for="wallet">BNB Wallet Address</label>
+      <input type="text" id="wallet" placeholder="Paste your BNB address here" />
+    </div>
+    <div class="section">
+      <label for="balance">Token Balance (simulated)</label>
+      <p id="balance">BJF: 0</p>
+      <button onclick="simulateBalance()">Check Balance</button>
+    </div>
+  </main>
+  <footer style="text-align:center; margin-top:40px;">&copy; 2025 BJF Token</footer>
+  <script>
+    function simulateBalance() {
+      document.getElementById('balance').textContent = 'BJF: 123,456.78';
+    }
+  </script>
+</body>
+</html>

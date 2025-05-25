@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Referral Program</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .referral { max-width: 600px; margin: 40px auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    .referral input[type=text] { width: 100%; padding: 10px; font-size: 1rem; border: 1px solid #ccc; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <header><h1 style="text-align:center;">Invite & Earn BJF</h1></header>
+  <main class="referral">
+    <p>Share your referral link and earn bonus tokens when people join the airdrop.</p>
+    <label>Your Referral Link:</label>
+    <input type="text" id="refLink" readonly />
+    <button onclick="copyLink()" style="margin-top:10px;">Copy</button>
+    <p id="copyStatus" style="color:green;"></p>
+  </main>
+  <script>
+    const wallet = "0xYourWalletAddressHere";
+    const link = `${window.location.origin}/airdrop.html?ref=${wallet}`;
+    document.getElementById('refLink').value = link;
+
+    function copyLink() {
+      const input = document.getElementById('refLink');
+      input.select();
+      input.setSelectionRange(0, 99999);
+      document.execCommand("copy");
+      document.getElementById('copyStatus').textContent = "Link copied!";
+    }
+  </script>
+</body>
+</html>
