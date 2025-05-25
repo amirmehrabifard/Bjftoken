@@ -1,28 +1,41 @@
-
 const translations = {
-    en: {
-        welcome: "Welcome to BJF Token",
-        description: "BJF Token is a decentralized, community-driven digital asset built on the BNB Chain. Our mission is to enable fair access to blockchain innovation while promoting financial freedom through transparency and inclusion.\n\nKey Features:\n- Token Sale: Purchase tokens directly through a user-friendly and secure interface.\n- Free Airdrop: Get free BJF tokens by registering and referring friends.\n- Detailed Whitepaper: Explore our technology, economic model, and development strategy.\n- Multi-language: Supports international users with language switching."
-    },
-    fa: {
-        welcome: "خوش آمدید به BJF Token",
-        description: "BJF Token یک دارایی دیجیتال غیرمتمرکز و جامعه‌محور است که بر بستر زنجیره BNB توسعه یافته. این پروژه با هدف ایجاد رشد پایدار، شفافیت مالی، و گسترش دسترسی عمومی به فناوری بلاک‌چین طراحی شده است.\n\nویژگی‌های کلیدی پروژه:\n- فروش توکن: امکان خرید مستقیم توکن با رابط کاربری ساده و ایمن.\n- ایردراپ رایگان: با ثبت‌نام و معرفی دوستان، توکن رایگان دریافت کنید.\n- وایت‌پیپر جامع: بررسی جزئیات فناوری، اهداف اقتصادی، و مسیر توسعه پروژه.\n- چند زبانه: پشتیبانی از کاربران بین‌المللی با رابط کاربری چند زبانه."
-    }
+  en: {
+    welcome: "Welcome to BJF Token",
+    description: "BJF Token is a decentralized, community-driven digital asset built on the BNB Chain. Our mission is to enable fair access to blockchain innovation while promoting financial freedom through transparency and inclusion."
+  },
+  fa: {
+    welcome: "خوش آمدید به BJF Token",
+    description: "BJF Token یک دارایی دیجیتال غیرمتمرکز و جامعه‌محور است که بر بستر زنجیره BNB توسعه یافته. هدف ما ایجاد رشد پایدار، شفافیت مالی، و دسترسی منصفانه به نوآوری در بلاک‌چین است."
+  },
+  ar: {
+    welcome: "مرحبًا بكم في BJF Token",
+    description: "BJF Token هو أصل رقمي لامركزي يقوده المجتمع مبني على شبكة BNB. هدفنا هو تمكين الوصول العادل إلى الابتكار المالي وتعزيز الشفافية."
+  },
+  fr: {
+    welcome: "Bienvenue sur BJF Token",
+    description: "BJF Token est un actif numérique décentralisé dirigé par la communauté sur la BNB Chain. Notre mission est de promouvoir l'inclusion financière et la transparence."
+  },
+  es: {
+    welcome: "Bienvenido a BJF Token",
+    description: "BJF Token es un activo digital descentralizado impulsado por la comunidad en la BNB Chain. Buscamos promover la libertad financiera con transparencia."
+  },
+  zh: {
+    welcome: "欢迎来到 BJF Token",
+    description: "BJF Token 是在 BNB 链上构建的去中心化社区驱动数字资产。我们的使命是实现区块链创新的公平访问。"
+  }
 };
 
-const langSelector = document.getElementById("language-selector");
+const switcher = document.getElementById("language-switcher");
 const welcomeText = document.getElementById("welcome");
 const descText = document.getElementById("description");
 
-function setLanguage(lang) {
-    welcomeText.innerText = translations[lang].welcome;
-    descText.innerText = translations[lang].description.replace(/\n/g, "\n");
+function translate(lang) {
+  const t = translations[lang];
+  if (t) {
+    welcomeText.innerText = t.welcome;
+    descText.innerText = t.description;
+  }
 }
 
-langSelector.addEventListener("change", (e) => {
-    setLanguage(e.target.value);
-});
-
-window.onload = () => {
-    setLanguage(langSelector.value);
-};
+switcher.addEventListener("change", e => translate(e.target.value));
+window.onload = () => translate(switcher.value);
