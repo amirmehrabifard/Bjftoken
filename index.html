@@ -1,40 +1,43 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BJF Token</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BJF Token</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="lang.js" defer></script>
 </head>
 <body>
-  <header>
-    <h1>BJF Token</h1>
-    <select id="langSwitcher" onchange="switchLang(this.value)">
-      <option value="en">English</option>
-      <option value="fa">فارسی</option>
-      <option value="ar">العربية</option>
-      <option value="zh">中文</option>
-      <option value="es">Español</option>
-      <option value="ru">Русский</option>
-      <option value="tr">Türkçe</option>
-    </select>
-  </header>
-  <main>
-    <div id="content-en" class="lang-content">Welcome to BJF Token - Decentralized Growth</div>
-    <div id="content-fa" class="lang-content" style="display:none;">به BJF Token خوش آمدید - رشد غیرمتمرکز</div>
-    <div id="content-ar" class="lang-content" style="display:none;">مرحبًا بكم في BJF Token - نمو لامركزي</div>
-    <div id="content-zh" class="lang-content" style="display:none;">欢迎来到 BJF Token - 去中心化增长</div>
-    <div id="content-es" class="lang-content" style="display:none;">Bienvenido a BJF Token - Crecimiento descentralizado</div>
-    <div id="content-ru" class="lang-content" style="display:none;">Добро пожаловать в BJF Token - Децентрализованный рост</div>
-    <div id="content-tr" class="lang-content" style="display:none;">BJF Token'a hoş geldiniz - Merkeziyetsiz Büyüme</div>
-  </main>
-  <footer>&copy; 2025 BJF Token</footer>
-  <script>
-    function switchLang(lang) {
-      document.querySelectorAll('.lang-content').forEach(el => el.style.display = 'none');
-      document.getElementById('content-' + lang).style.display = 'block';
-    }
-  </script>
+    <header>
+        <img src="logo.png" alt="BJF Logo" class="logo" />
+        <h1 data-translate="title">Welcome to BJF Token</h1>
+        <select id="language-switcher">
+            <option value="en">English</option>
+            <option value="fa">فارسی</option>
+        </select>
+        <nav>
+            <a href="index.html" data-translate="home">Home</a>
+            <a href="buy.html" data-translate="buy">Buy Token</a>
+            <a href="airdrop.html" data-translate="airdrop">Airdrop</a>
+            <a href="whitepaper.html" data-translate="whitepaper">Whitepaper</a>
+            <a href="contact.html" data-translate="contact">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <p data-translate="description">
+            BJF Token is a decentralized crypto asset built on the BNB Chain.
+        </p>
+        <p><strong data-translate="contract">Contract:</strong> 0x530633cc6a994759730c0a62Fca44774Aa607568</p>
+    </main>
+    <footer>
+        <p>&copy; 2025 BJF Token</p>
+        <div>
+            <a href="https://t.me/bjftoken">Telegram</a> |
+            <a href="https://twitter.com/TokenFrank13221">Twitter</a> |
+            <a href="https://instagram.com/bjftoken">Instagram</a> |
+            <a href="https://reddit.com/u/BJFtoken">Reddit</a> |
+            <a href="https://discord.com">Discord</a>
+        </div>
+    </footer>
 </body>
 </html>
