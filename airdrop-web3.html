@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BJF Airdrop Registration</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .form-wrap { max-width: 600px; margin: 40px auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    input, button { width: 100%; padding: 10px; margin-top: 10px; border-radius: 5px; border: 1px solid #ccc; }
+    button { background-color: #007bff; color: white; border: none; }
+  </style>
+</head>
+<body>
+  <header><h1 style="text-align:center;">BJF Token Airdrop</h1></header>
+  <main class="form-wrap">
+    <p>Connect your wallet and fill the form to join the airdrop.</p>
+    <form id="airdropForm" onsubmit="submitForm(event)">
+      <label>Email</label>
+      <input type="email" id="email" required>
+      <label>Wallet Address</label>
+      <input type="text" id="wallet" required readonly placeholder="Connect your wallet...">
+      <button type="button" onclick="connectWallet()">Connect Wallet</button>
+      <button type="submit">Submit</button>
+    </form>
+    <p id="status" style="color:green; margin-top:10px;"></p>
+  </main>
+  <script>
+    async function connectWallet() {
+      if (typeof window.ethereum !== 'undefined') {
+        try {
+          const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+          document.getElementById('wallet').value = accounts[0];
+        } catch (error) {
+          alert('Wallet connection failed.');
+        }
+      } else {
+        alert('Please install MetaMask.');
+      }
+    }
+
+    function submitForm(e) {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const wallet = document.getElementById('wallet').value;
+      if (!wallet) {
+        alert('Please connect your wallet first.');
+        return;
+      }
+      const entry = { email, wallet, timestamp: new Date().toISOString() };
+      const existing = JSON.parse(localStorage.getItem('bjf_airdrop')) || [];
+      existing.push(entry);
+      localStorage.setItem('bjf_airdrop', JSON.stringify(existing));
+      document.getElementById('status').textContent = 'Airdrop entry submitted!';
+      document.getElementById('airdropForm').reset();
+    }
+  </script>
+</body>
+</html>
