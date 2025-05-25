@@ -1,41 +1,34 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BJF Token</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="lang.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BJF Token</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="lang.js" defer></script>
 </head>
 <body>
-  <header>
-    <img src="logo.png" alt="BJF Logo" class="logo" />
+    <header>
+        <img src="logo.png" alt="BJF Logo" style="width: 100px;">
+        <select id="language-selector">
+            <option value="en">English</option>
+            <option value="fa">فارسی</option>
+        </select>
+    </header>
     <nav>
-      <select id="language-switcher">
-        <option value="en">English</option>
-        <option value="fa">فارسی</option>
-        <option value="ar">العربية</option>
-        <option value="fr">Français</option>
-        <option value="es">Español</option>
-        <option value="zh">中文</option>
-        <option value="ru">Русский</option>
-      </select>
-      <a href="index.html" data-i18n="home">Home</a>
-      <a href="buy.html" data-i18n="buy_token">Buy Token</a>
-      <a href="airdrop.html" data-i18n="airdrop">Airdrop</a>
-      <a href="whitepaper.html" data-i18n="whitepaper">Whitepaper</a>
-      <a href="contact.html" data-i18n="contact">Contact</a>
+        <a href="#">Home</a>
+        <a href="#">Buy Token</a>
+        <a href="#">Airdrop</a>
+        <a href="whitepaper.html">Whitepaper</a>
+        <a href="#">Contact</a>
     </nav>
-  </header>
-  <main>
-    <section class="hero">
-      <h1 data-i18n="welcome">Welcome to BJF Token</h1>
-      <p data-i18n="description">BJF is a decentralized digital asset built on the BNB Chain. It enables community-driven investment, low fees, and global access.</p>
-      <p><strong data-i18n="contract">Contract:</strong> 0x530633cc6a994759730c0a62Fca44774Aa607568</p>
-    </section>
-  </main>
-  <footer>
-    <p>&copy; 2025 BJF Token</p>
-  </footer>
+    <main>
+        <h1 id="welcome"></h1>
+        <p id="description"></p>
+    </main>
+    <footer>
+        <p>© 2025 BJF Token</p>
+    </footer>
 </body>
 </html>
