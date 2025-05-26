@@ -2,13 +2,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>BJF Token</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+  <header>
+    <img src="logo.png" alt="BJF Logo" id="logo">
+    <nav>
+      <ul>
+        <li><a href="index.html" data-i18n="home">Home</a></li>
+        <li><a href="buy.html" data-i18n="buyToken">Buy Token</a></li>
+        <li><a href="airdrop.html" data-i18n="airdrop">Airdrop</a></li>
+        <li><a href="whitepaper.html" data-i18n="whitepaper">Whitepaper</a></li>
+        <li><a href="contact.html" data-i18n="contact">Contact</a></li>
+      </ul>
+    </nav>
+    <select id="languageSwitcher">
+      <option value="en">English</option>
+      <option value="fa">فارسی</option>
+      <option value="es">Español</option>
+      <option value="de">Deutsch</option>
+      <option value="fr">Français</option>
+      <option value="ru">Русский</option>
+      <option value="zh">中文</option>
+    </select>
+  </header>
+
+  <main>
+    <section>
+      <h1 data-i18n="welcomeTitle">Welcome to BJF Token</h1>
+      <p data-i18n="introText">BJF Token is a decentralized crypto asset built on the BNB Chain.</p>
+      <p><strong data-i18n="contractAddress">Contract:</strong> 0x530633cc6a994759730c0a62Fca44774Aa607568</p>
+      <p><strong data-i18n="walletAddress">Main Wallet:</strong> 0x185C70bb5e55a8e4d1ad606F994bEe87F2A39bC5</p>
+    </section>
+  </main>
+
   <footer>
-    <a href="https://t.me/benjaminfranklintoken" target="_blank">Telegram</a>
+    <p>&copy; 2025 BJF Token</p>
+    <div class="socials">
+      <a href="https://t.me/benjaminfranklintoken" target="_blank">Telegram</a> |
+      <a href="https://twitter.com/bjftoken" target="_blank">Twitter</a> |
+      <a href="https://instagram.com/bjftoken" target="_blank">Instagram</a> |
+      <a href="https://reddit.com/r/bjftoken" target="_blank">Reddit</a> |
+      <a href="https://discord.gg/bjftoken" target="_blank">Discord</a>
+    </div>
   </footer>
+
+  <script src="lang.js"></script>
 </body>
 </html>
