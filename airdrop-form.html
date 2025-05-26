@@ -17,37 +17,137 @@
 </head>
 <body>
   <form action="mailto:bjftoken.us@gmail.com" method="POST" enctype="text/plain">
-    <h2>BJF Token Airdrop Form</h2>
+    <h2 id="form-title">BJF Token Airdrop Form</h2>
 
-    <label for="lang">Language / زبان / भाषा</label>
-    <select name="Language" id="lang">
-      <option value="English">English</option>
-      <option value="Persian">فارسی</option>
-      <option value="Hindi">हिन्दी</option>
+    <label for="lang">Language / زبان / لغة / язык</label>
+    <select id="lang" onchange="switchLanguage(this.value)">
+      <option value="en">English</option>
+      <option value="fa">فارسی</option>
+      <option value="ar">العربية</option>
+      <option value="tr">Türkçe</option>
+      <option value="zh">中文</option>
+      <option value="ru">Русский</option>
+      <option value="es">Español</option>
+      <option value="fr">Français</option>
     </select>
 
-    <label for="wallet">BSC Wallet Address</label>
+    <label id="wallet-label" for="wallet">BSC Wallet Address</label>
     <input type="text" id="wallet" name="BSC Wallet Address" required />
 
-    <label for="email">Email Address</label>
+    <label id="email-label" for="email">Email Address</label>
     <input type="email" id="email" name="Email" required />
 
-    <label for="telegram">Telegram Username</label>
+    <label id="telegram-label" for="telegram">Telegram Username</label>
     <input type="text" id="telegram" name="Telegram" required />
 
-    <label for="twitter">Twitter Username</label>
+    <label id="twitter-label" for="twitter">Twitter Username</label>
     <input type="text" id="twitter" name="Twitter" required />
 
-    <label for="retweet">Tweet Link</label>
+    <label id="retweet-label" for="retweet">Tweet Link</label>
     <input type="url" id="retweet" name="Retweet Link" required />
 
-    <label for="ref">Referral (optional)</label>
+    <label id="ref-label" for="ref">Referral (optional)</label>
     <input type="text" id="ref" name="Referral Code or Address" />
 
-    <label for="notes">Other Notes (optional)</label>
+    <label id="notes-label" for="notes">Other Notes (optional)</label>
     <textarea id="notes" name="Notes" rows="3"></textarea>
 
-    <button type="submit">Submit / ارسال / जमा करें</button>
+    <button type="submit" id="submit-btn">Submit</button>
   </form>
+
+  <script>
+    const translations = {
+      fa: {
+        title: "فرم ایردراپ توکن BJF",
+        wallet: "آدرس کیف پول BSC",
+        email: "آدرس ایمیل",
+        telegram: "نام کاربری تلگرام",
+        twitter: "نام کاربری توییتر",
+        retweet: "لینک توییت",
+        ref: "معرف (اختیاری)",
+        notes: "توضیحات دیگر (اختیاری)",
+        submit: "ارسال"
+      },
+      ar: {
+        title: "نموذج إيردروب رمز BJF",
+        wallet: "عنوان محفظة BSC",
+        email: "البريد الإلكتروني",
+        telegram: "اسم مستخدم تيليجرام",
+        twitter: "اسم مستخدم تويتر",
+        retweet: "رابط التغريدة",
+        ref: "المُحيل (اختياري)",
+        notes: "ملاحظات إضافية (اختياري)",
+        submit: "إرسال"
+      },
+      tr: {
+        title: "BJF Token Airdrop Formu",
+        wallet: "BSC Cüzdan Adresi",
+        email: "E-posta Adresi",
+        telegram: "Telegram Kullanıcı Adı",
+        twitter: "Twitter Kullanıcı Adı",
+        retweet: "Tweet Bağlantısı",
+        ref: "Referans (isteğe bağlı)",
+        notes: "Diğer Notlar (isteğe bağlı)",
+        submit: "Gönder"
+      },
+      zh: {
+        title: "BJF 代币空投表格",
+        wallet: "BSC 钱包地址",
+        email: "电子邮件地址",
+        telegram: "Telegram 用户名",
+        twitter: "Twitter 用户名",
+        retweet: "推文链接",
+        ref: "推荐人（可选）",
+        notes: "其他备注（可选）",
+        submit: "提交"
+      },
+      ru: {
+        title: "Форма Airdrop токена BJF",
+        wallet: "Адрес кошелька BSC",
+        email: "Электронная почта",
+        telegram: "Имя в Telegram",
+        twitter: "Имя в Twitter",
+        retweet: "Ссылка на твит",
+        ref: "Реферал (необязательно)",
+        notes: "Доп. заметки (необязательно)",
+        submit: "Отправить"
+      },
+      es: {
+        title: "Formulario Airdrop BJF Token",
+        wallet: "Dirección de billetera BSC",
+        email: "Correo electrónico",
+        telegram: "Usuario de Telegram",
+        twitter: "Usuario de Twitter",
+        retweet: "Enlace del tweet",
+        ref: "Referido (opcional)",
+        notes: "Notas adicionales (opcional)",
+        submit: "Enviar"
+      },
+      fr: {
+        title: "Formulaire Airdrop BJF Token",
+        wallet: "Adresse du portefeuille BSC",
+        email: "Adresse e-mail",
+        telegram: "Nom d'utilisateur Telegram",
+        twitter: "Nom d'utilisateur Twitter",
+        retweet: "Lien du tweet",
+        ref: "Parrain (optionnel)",
+        notes: "Autres remarques (optionnel)",
+        submit: "Soumettre"
+      }
+    };
+
+    function switchLanguage(lang) {
+      const t = translations[lang] || {};
+      document.getElementById('form-title').innerText = t.title || "BJF Token Airdrop Form";
+      document.getElementById('wallet-label').innerText = t.wallet || "BSC Wallet Address";
+      document.getElementById('email-label').innerText = t.email || "Email Address";
+      document.getElementById('telegram-label').innerText = t.telegram || "Telegram Username";
+      document.getElementById('twitter-label').innerText = t.twitter || "Twitter Username";
+      document.getElementById('retweet-label').innerText = t.retweet || "Tweet Link";
+      document.getElementById('ref-label').innerText = t.ref || "Referral (optional)";
+      document.getElementById('notes-label').innerText = t.notes || "Other Notes (optional)";
+      document.getElementById('submit-btn').innerText = t.submit || "Submit";
+    }
+  </script>
 </body>
 </html>
